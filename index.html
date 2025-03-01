@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scout Plaque Generator</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .hidden {
+      display: none;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .tab-trigger.active {
+      background-color: white;
+      color: #1d4ed8;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-gray-50 py-8 px-4">
+  <div class="max-w-4xl mx-auto">
+    <header class="mb-8 text-center">
+      <h1 class="text-3xl font-bold text-blue-800">Scout Plaque Generator</h1>
+      <p class="text-gray-600 mt-2">Create SVG files for laser engraving scout plaques</p>
+    </header>
+
+    <div class="tabs w-full">
+      <div class="inline-flex h-10 items-center justify-center rounded-md bg-gray-100 p-1 text-gray-500 w-full grid grid-cols-2 mb-8">
+        <button class="tab-trigger active inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium" data-tab="name-plaques">Scout Name Plaques</button>
+        <button class="tab-trigger inline-flex items-center justify-center whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium" data-tab="rank-plaques">Rank Plaques</button>
+      </div>
+
+      <div id="name-plaques" class="tab-content active">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="rounded-lg border border-gray-200 bg-white text-gray-950 shadow-sm">
+            <div class="flex flex-col space-y-1.5 p-6">
+              <h3 class="text-2xl font-semibold leading-none tracking-tight">Pack Information</h3>
+              <p class="text-sm text-gray-500">Enter the details that will appear on all name plaques</p>
+            </div>
+            <div class="p-6 pt-0 space-y-4">
+              <div class="space-y-2">
+                <label for="pack" class="text-sm font-medium leading-none">Pack Number</label>
+                <input id="pack" name="pack" placeholder="e.g. Pack 123" class="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm">
+              </div>
+              <div class="space-y-2">
+                <label for="council" class="text-sm font-medium leading-none">Council Name</label>
+                <input id="council" name="council" placeholder="e.g. Golden Empire Council" class="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm">
+              </div>
+              <div class="space-y-2">
+                <label for="town" class="text-sm font-medium leading-none">Town/City</label>
+                <input id="town" name="town" placeholder="e.g. Sacramento, CA" class="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm">
+              </div>
+              <div class="space-y-2">
+                <label for="scouts" class="text-sm font-medium leading-none">Scout Names (one per line)</label>
+                <textarea id="scouts" placeholder="John Smith&#10;Jane Doe&#10;..." class="flex min-h-[150px] w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="rounded-lg border border-gray-200 bg-white text-gray-950 shadow-sm">
+              <div class="flex flex-col space-y-1.5 p-6">
+                <h3 class="text-2xl font-semibold leading-none tracking-tight">Preview</h3>
+                <p id="preview-description" class="text-sm text-gray-500">Enter scout names to see previews</p>
+              </div>
+              <div class="p-6 pt-0 flex flex-col items-center">
+                <div id="name-preview-container" class="border border-gray-200 p-4 bg-white w-full overflow-auto">
+                  <div id="name-preview-placeholder" class="text-center py-8 text-gray-500">
+                    Enter scout names to preview plaques
+                  </div>
+                  <svg id="scout-plaque-preview" class="hidden" width="600" height="200" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+                    <!-- SVG content will be generated dynamically -->
+                  </svg>
+                </div>
+                
+                <div id="preview-navigation" class="flex justify-between w-full mt-4 hidden">
+                  <button id="prev-button" class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-white text-blue-600 border border-blue-600 hover:bg-blue-50">
+                    Previous
+                  </button>
+                  <button id="next-button" class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-white text-blue-600 border border-blue-600 hover:bg-blue-50">
+                    Next
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col space-y-2">
+              <button id="download-current" class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-blue-600 text-white hover:bg-blue-700 w-full hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Download Current Plaque
+              </button>
+              
+              <button id="download-all" class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-white text-blue-600 border border-blue-600 hover:bg-blue-50 w-full hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Download All Plaques
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hidden SVGs for all scouts (for download functionality) -->
+        <div id="hidden-svgs" class="hidden"></div>
+      </div>
+
+      <div id="rank-plaques" class="tab-content">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="rounded-lg border border-gray-200 bg-white text-gray-950 shadow-sm">
+            <div class="flex flex-col space-y-1.5 p-6">
+              <h3 class="text-2xl font-semibold leading-none tracking-tight">Rank Information</h3>
+              <p class="text-sm text-gray-500">Select the rank and year for the plaque</p>
+            </div>
+            <div class="p-6 pt-0 space-y-4">
+              <div class="space-y-2">
+                <label for="rank" class="text-sm font-medium leading-none">Scout Rank</label>
+                <select id="rank" class="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm">
+                  <option value="Tiger">Tiger</option>
+                  <option value="Wolf">Wolf</option>
+                  <option value="Bear">Bear</option>
+                  <option value="Webelos">Webelos</option>
+                  <option value="Arrow of Light">Arrow of Light</option>
+                  <option value="Scout">Scout</option>
+                  <option value="Tenderfoot">Tenderfoot</option>
+                  <option value="Second Class">Second Class</option>
+                  <option value="First Class">First Class</option>
+                  <option value="Star">Star</option>
+                  <option value="Life">Life</option>
+                  <option value="Eagle">Eagle</option>
+                </select>
+              </div>
+              <div class="space-y-2">
+                <label for="year" class="text-sm font-medium leading-none">Year</label>
+                <input id="year" name="year" type="number" min="1900" max="2100" value="2025" class="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm">
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="rounded-lg border border-gray-200 bg-white text-gray-950 shadow-sm">
+              <div class="flex flex-col space-y-1.5 p-6">
+                <h3 class="text-2xl font-semibold leading-none tracking-tight">Preview</h3>
+                <p id="rank-preview-description" class="text-sm text-gray-500">Tiger Rank Plaque for 2025</p>
+              </div>
+              <div class="p-6 pt-0 flex flex-col items-center">
+                <div class="border border-gray-200 p-4 bg-white w-full overflow-auto">
+                  <svg id="rank-plaque" width="600" height="300" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+                    <!-- SVG content will be generated dynamically -->
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <button id="download-rank" class="inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium bg-blue-600 text-white hover:bg-blue-700 w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              Download Rank Plaque
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
