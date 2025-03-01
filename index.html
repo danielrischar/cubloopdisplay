@@ -25,8 +25,8 @@
 <body class="min-h-screen bg-gray-50 py-8 px-4">
   <div class="max-w-4xl mx-auto">
     <header class="mb-8 text-center">
-      <h1 class="text-3xl font-bold text-blue-800">Scout Plaque Generator</h1>
-      <p class="text-gray-600 mt-2">Create SVG files for laser engraving scout plaques</p>
+      <h1 class="text-3xl font-bold text-blue-800">Cub Scout Loop Display</h1>
+      <p class="text-gray-600 mt-2">Generate SVG files for for laser engraving scout plaques.  For more information, see <a href="https://github.com/danielrischar/cubloopdisplay">README</a></p>
     </header>
 
     <div class="tabs w-full">
@@ -45,15 +45,15 @@
             <div class="p-6 pt-0 space-y-4">
               <div class="space-y-2">
                 <label for="pack" class="text-sm font-medium leading-none">Pack Number</label>
-                <input id="pack" name="pack" placeholder="e.g. Pack 123" class="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm">
+                <input id="pack" name="pack" placeholder="e.g. Pack 91" class="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm">
               </div>
               <div class="space-y-2">
                 <label for="council" class="text-sm font-medium leading-none">Council Name</label>
-                <input id="council" name="council" placeholder="e.g. Golden Empire Council" class="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm">
+                <input id="council" name="council" placeholder="e.g. Lake Erie Council" class="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm">
               </div>
               <div class="space-y-2">
                 <label for="town" class="text-sm font-medium leading-none">Town/City</label>
-                <input id="town" name="town" placeholder="e.g. Sacramento, CA" class="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm">
+                <input id="town" name="town" placeholder="e.g. Munson Township, OH" class="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm">
               </div>
               <div class="space-y-2">
                 <label for="scouts" class="text-sm font-medium leading-none">Scout Names (one per line)</label>
@@ -118,18 +118,13 @@
               <div class="space-y-2">
                 <label for="rank" class="text-sm font-medium leading-none">Scout Rank</label>
                 <select id="rank" class="flex h-10 w-full rounded-md border border-gray-300 bg-white px-3 py-2 text-sm">
+                  <option value="Lion">Lion</option>
+                  <option value="Lion">Bobcat</option>
                   <option value="Tiger">Tiger</option>
                   <option value="Wolf">Wolf</option>
                   <option value="Bear">Bear</option>
                   <option value="Webelos">Webelos</option>
                   <option value="Arrow of Light">Arrow of Light</option>
-                  <option value="Scout">Scout</option>
-                  <option value="Tenderfoot">Tenderfoot</option>
-                  <option value="Second Class">Second Class</option>
-                  <option value="First Class">First Class</option>
-                  <option value="Star">Star</option>
-                  <option value="Life">Life</option>
-                  <option value="Eagle">Eagle</option>
                 </select>
               </div>
               <div class="space-y-2">
