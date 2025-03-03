@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         <!-- Background -->
         <rect x="0" y="0" width="${width}" height="${height}" fill="white" stroke="black" stroke-width="2" />
         
-        <!-- Border design -->s
+        <!-- Border design -->
         <rect x="15" y="15" width="${width - 30}" height="${height - 30}" fill="none" stroke="black" stroke-width="1" />
         
         <!-- Rank title -->
