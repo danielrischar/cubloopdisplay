@@ -309,28 +309,26 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     return `
       <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
-        <!-- Background -->
-        <rect x="0" y="0" width="${width}" height="${height}" fill="white" />
-        
-        <!-- Border -->
-        <rect x="35" y="35" width="${width - 70}" height="${height - 70}" fill="none" stroke="black" stroke-width="15" />
-        
-        <!-- Rank emblem -->
-        <image x="2775" y="75" width="600" height="600" href="${rankEmblem}" />
-        
-        <!-- Year -->
-        <text
-          x="${width - 150}"
-          y="${height / 2}"
-          font-family="Arial, sans-serif"
-          font-size="144"
-          text-anchor="middle"
-          transform="rotate(90 ${width - 150} ${height / 2})"
-        >
-          ${year}
-        </text>
-        
-        ${additionalContent}
+      <!-- Background -->
+      <rect x="0" y="0" width="${width}" height="${height}" fill="white" />
+      
+      <!-- Rank emblem -->
+      <image x="2775" y="75" width="600" height="600" href="${rankEmblem}" />
+      
+      <!-- Year -->
+      <text
+        x="${width - 150}"
+        y="${height / 2}"
+        font-family="Arial, sans-serif"
+        font-size="144"
+        font-weight="bold"
+        text-anchor="middle"
+        transform="rotate(90 ${width - 150} ${height / 2})"
+      >
+        ${year}
+      </text>
+      
+      ${additionalContent}
       </svg>
     `;
   }
