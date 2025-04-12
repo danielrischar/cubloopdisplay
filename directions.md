@@ -1,6 +1,5 @@
 # Directions for creating a Plaque
 
-
 ## Wood
 I use 1/2" thick, 2.5" wide, 3' long oak boards from Home Depot. These are readily available and easy to work with. The 3' length allows you to cut three plaques from each board with minimal waste. The kerf (width of material removed by the saw blade), is why I use 11.75" instead of 12".
 
@@ -17,7 +16,9 @@ You should try to keep the wood and stain options consistent per child so that t
 3. Apply the images to the boards in the manner of your choosing.
 
 ## Hanging Hardware
-TODO: explain how to use the drill guide, drill bit size, hook eye details, and cuttingthe upper eye into a hook.
+1. 3D print the hole drilling guide or carefully measure 1.5" from the edge and drill all 4 corners with a 1/32" or 3/64 drill bit.
+2. Screw 1/16" 5/8" zinc screw eyes into each hold.
+3. Using a dremel or similar tool, take off just a tiny bit of the top screw eyes to form a hook.  The bottom screw eye will remain a full loop.
 
 # Loop Holders
 The loop holders are 3D printed from the file located in (models/loopholder_v1.stl)[models/loopholder_v1.stl] (or a more recent version if named as such).

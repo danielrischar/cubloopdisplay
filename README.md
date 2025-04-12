@@ -34,3 +34,10 @@ This repository provides a GitHub pages site to generate the images that are put
 This application is deployed on GitHub Pages at: https://danielrischar.github.io/cubloopdisplay or to another similar location if this repository has been forked elsewhere.
 
 [Follow these directions for making plaques](directions.md)
+
+# 3D Models
+   This repository contains a models folder with the following:
+   1. [loopholder_v1.stl](models/loopholder_v1.stl) - The loop holder itself.
+   2. [drillguide_v1.stl](models/drillguide_v1.stl) - A guide for drilling holes for hooks.
+
+These models can also both be found on TinkerCad if you would like to modify them: https://www.tinkercad.com/things/eeiY9I2OhVt-loop-holder
