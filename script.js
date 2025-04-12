@@ -178,7 +178,8 @@ document.addEventListener('DOMContentLoaded', async function() {
   });
   
   downloadRankPngButton.addEventListener('click', () => {
-    downloadPNG(rankPlaque, `${rankSelect.value.replace(/\s+/g, '_')}_rank_plaque_${yearInput.value}.png`);
+    const svgEl = document.getElementById(`rank-plaque`).querySelector('svg');
+    downloadPNG(svgEl, `${rankSelect.value.replace(/\s+/g, '_')}_rank_plaque_${yearInput.value}.png`);
   });
   
   function updateRankPreview() {
@@ -309,26 +310,24 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     return `
       <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
-      <!-- Background -->
-      <rect x="0" y="0" width="${width}" height="${height}" fill="white" />
-      
-      <!-- Rank emblem -->
-      <image x="2775" y="75" width="600" height="600" href="${rankEmblem}" />
-      
-      <!-- Year -->
-      <text
-        x="${width - 150}"
+        <!-- Background -->
+        <rect x="0" y="0" width="${width}" height="${height}" fill="none" />
+        
+        <!-- Rank emblem -->
+        <image x="2650" y="75" width="600" height="600" href="${rankEmblem}" />
+        
+        <!-- Year -->
+        <text
+        x="${width - 200}"
         y="${height / 2}"
         font-family="Arial, sans-serif"
-        font-size="144"
+        font-size="200"
         font-weight="bold"
         text-anchor="middle"
-        transform="rotate(90 ${width - 150} ${height / 2})"
-      >
+        transform="rotate(90 ${width - 200} ${height / 2})"
+        >
         ${year}
-      </text>
-      
-      ${additionalContent}
+        </text>
       </svg>
     `;
   }
