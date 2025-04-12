@@ -1,52 +1,36 @@
 # Scout Plaque Generator
 
-A web application for creating SVG files for laser engraving scout plaques.
+This repository contains all of the digital materials required for producing a personalized series of wooden plaques for displaying Cub Scout adventure belt loops as part of the Scouting America recognition programs.
 
-## Features
+These plaques will require some specialized tools, many of which may be available through families in your pack or local maker spaces.
+* Wood working tools for cutting, sanding and staining each plaque.
+* Vinyl cutter (Cricut or similar) OR a laser engraver for putting the designs on the wood
+* 3D Printer for producing the actual loop holders
 
-- Generate personalized name plaques for scouts
-- Create rank plaques with customizable year
-- Export SVG files ready for laser engraving
-- Preview plaques before downloading
+# Background
+Advancement is part of the aims and methods of Scouting as adapted for Cub Scouts.
+https://www.scouting.org/programs/cub-scouts/aims-and-methods/
 
-## Deployment
+> Recognition is important to everyone. The advancement plan provides fun for the Scouts, gives them a sense of personal achievement as they earn badges, and strengthens family understanding as adult family members and their den leader work with them on advancement projects.
 
-This application is deployed on GitHub Pages at: [https://yourusername.github.io/cubloopdisplay](https://yourusername.github.io/cubloopdisplay)
+For Lion through Bear ranks, scouts earn Belt Loops for completing adventures.  In the 2024 program updates, Scouting America doubled down on belt loops by switching from from patches for Bobcat and shooting sports to belt loops.  As it stands, Lion has 22 adventures that reward loops, and other ranks have 26.
 
-## Development
+Displaying their recognition is important for building that sense of acheivement, but the belts introduce a number of issues:
+1. Scouts do not commonly wear the official belt
+2. When they do wear the official belt the loops need to be threaded on each time the belt is worn.
+3. Younger scouts are small enough that they do not have enough circumference to be able to hold all of their loops.
+4. Loops from previous ranks, and when the scout moves on to BSA, their belt loops just sit in a pile.
 
-This is a simple static HTML/CSS/JavaScript application. To run it locally:
+This display attempts to solve some of these problems by giving scouts a personalized and permanent way of displaying these loops.
 
-```bash
-# Install dependencies
-npm install
+# Features
+* Personalized with their name, pack and council
+* Holds all loops that are earned for each rank
+* Expands over time as the scout moves to new ranks while not leaving blank sections for scouts who joined later than lions.
 
-# Start the local server
-npm start
-```
+## Producing Personalized Headers and Rank Badges
+This repository provides a GitHub pages site to generate the images that are put on the plaques.
 
-Then open your browser to http://localhost:8000
+This application is deployed on GitHub Pages at: https://danielrischar.github.io/cubloopdisplay or to another similar location if this repository has been forked elsewhere.
 
-## GitHub Pages Deployment
-
-This project uses the gh-pages package for deployment to GitHub Pages:
-
-1. Make sure your repository is set up for GitHub Pages:
-   - Go to your repository settings
-   - Navigate to "Pages"
-   - Set the source to "Deploy from a branch"
-   - Select the "gh-pages" branch and save
-
-2. To deploy your changes:
-   ```bash
-   # Deploy to GitHub Pages
-   npm run deploy
-   ```
-
-3. This will create or update the gh-pages branch with your current code and push it to GitHub.
-
-## Technologies Used
-
-- HTML
-- CSS (with Tailwind classes)
-- JavaScript
+[Follow these directions for making plaques](directions.md)
