@@ -310,24 +310,27 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     return `
       <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
-        <!-- Background -->
-        <rect x="0" y="0" width="${width}" height="${height}" fill="none" />
-        
-        <!-- Rank emblem -->
-        <image x="2650" y="75" width="600" height="600" href="${rankEmblem}" />
-        
-        <!-- Year -->
-        <text
-        x="${width - 200}"
-        y="${height / 2}"
-        font-family="Arial, sans-serif"
-        font-size="200"
-        font-weight="bold"
-        text-anchor="middle"
-        transform="rotate(90 ${width - 200} ${height / 2})"
-        >
-        ${year}
-        </text>
+      <!-- Background -->
+      <rect x="0" y="0" width="${width}" height="${height}" fill="none" />
+      
+      <!-- Rank emblem -->
+      <image x="2650" y="${(height - 550) / 2}" width="600" height="550" href="${rankEmblem}" />
+      
+      <!-- Vertical divider -->
+      <line x1="${width - 250}" y1="${(height - 550) / 2}" x2="${width - 250}" y2="${(height + 550) / 2}" stroke="black" stroke-width="20" />
+
+      <!-- Year -->
+      <text
+      x="${width - 200}"
+      y="${height / 2}"
+      font-family="Arial, sans-serif"
+      font-size="200"
+      font-weight="bold"
+      text-anchor="middle"
+      transform="rotate(90 ${width - 200} ${height / 2})"
+      >
+      ${year}
+      </text>
       </svg>
     `;
   }
