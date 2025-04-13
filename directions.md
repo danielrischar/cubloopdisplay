@@ -16,7 +16,7 @@ You should try to keep the wood and stain options consistent per child so that t
 3. Apply the images to the boards in the manner of your choosing.
 
 ## Hanging Hardware
-1. 3D print the hole drilling guide or carefully measure 1.5" from the edge and drill all 4 corners with a 1/32" or 3/64 drill bit.
+1. 3D print the hole (drill guide)[models/drillguide_v1.stl] or carefully measure 1.5" from the edge and drill all 4 corners with a 1/32" or 3/64 drill bit.
 2. Screw 1/16" 5/8" zinc screw eyes into each hold.
 3. Using a dremel or similar tool, take off just a tiny bit of the top screw eyes to form a hook.  The bottom screw eye will remain a full loop.
 
